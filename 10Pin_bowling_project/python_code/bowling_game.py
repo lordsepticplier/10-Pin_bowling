@@ -16,8 +16,20 @@ class BowlingGame:
         Args:
             pins: Number of pins knocked down in this roll
         """
-        self.rolls.append(pins)
-        self.current_roll += 1
+        if pins < 0 :
+            #this happens if a roll is below 0 and makes it 0 by defult and says you cheated
+            print( "\ncheating detected " , pins , "is lower then 0 and thus cheating so this roll will be made 0")
+            self.rolls.append(0)
+            self.current_roll += 1
+        elif pins > 10 :
+            #this happens if a roll is above 10 and makes it 0 by defult and says you cheated
+            print("\ncheating detected ", pins , "is higher then 10 and thus cheating so this roll will be made 0")
+            self.rolls.extend([0, 0])
+            self.current_roll += 2
+        else:
+            #this happens if the roll is between 0 and 10 / a normal roll
+            self.rolls.append(pins)
+            self.current_roll += 1
 
     def score(self):
         """Calculate the score for the current game."""
