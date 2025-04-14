@@ -110,4 +110,14 @@ class BowlingGame:
         Returns:
             The value of the open frame
         """
+        if self.rolls[frame_index] + self.rolls[frame_index + 1] > 10:
+            #this happens if the two roles in the open frame is more then 10 thus cheated/wrong and if it is above 10 in makes the second roll 0 by defult and says you cheated
+            print("\ncheating detected" , self.rolls[frame_index] , "plus" , self.rolls[frame_index + 1] , "is higher then 10 and thus cheating so the second roll will be made 0")
+            return self.rolls[frame_index] + 0
+        else:
+            #this happens if the two rolls are less then 10 when added together
+            return self.rolls[frame_index] + self.rolls[frame_index + 1] 
+            
+            The value of the open frame
+        """
         return self.rolls[frame_index] + self.rolls[frame_index + 1] 
