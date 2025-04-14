@@ -18,12 +18,12 @@ class BowlingGame:
         """
         if pins < 0 :
             #this happens if a roll is below 0 and makes it 0 by defult and says you cheated
-            print( "\ncheating detected " , pins , "is lower then 0 and thus cheating so this roll will be made 0")
+            print( "\ncheating detected" , pins , "is lower then 0 and thus cheating so this roll will be made 0")
             self.rolls.append(0)
             self.current_roll += 1
         elif pins > 10 :
             #this happens if a roll is above 10 and makes it 0 by defult and says you cheated
-            print("\ncheating detected ", pins , "is higher then 10 and thus cheating so this roll will be made 0")
+            print("\ncheating detected", pins , "is higher then 10 and thus cheating so this roll will be made 0")
             self.rolls.extend([0, 0])
             self.current_roll += 2
         else:
@@ -32,7 +32,12 @@ class BowlingGame:
             self.current_roll += 1
 
     def score(self):
-        """Calculate the score for the current game."""
+        """
+        Calculate the score for the current game.
+        
+        Returns:
+            The score of the current game
+        """
         score = 0
         frame_index = 0
 
@@ -117,7 +122,3 @@ class BowlingGame:
         else:
             #this happens if the two rolls are less then 10 when added together
             return self.rolls[frame_index] + self.rolls[frame_index + 1] 
-            
-            The value of the open frame
-        """
-        return self.rolls[frame_index] + self.rolls[frame_index + 1] 
