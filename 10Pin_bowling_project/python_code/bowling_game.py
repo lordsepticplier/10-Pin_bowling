@@ -2,8 +2,6 @@
 Bowling Game Implementation
 A module for calculating bowling game scores.
 """
-
-
 class BowlingGame:
     def __init__(self):
         # Initialize a new game with 10 frames
@@ -26,7 +24,8 @@ class BowlingGame:
         score = 0
         frame_index = 0
 
-        for frame in range(9):
+        for frame in range(10):
+            #changing for 9 to 10 makes it that round 10 happens
             if self._is_strike(frame_index):
                 # Strike
                 score += 10 + self._strike_bonus(frame_index)
@@ -39,7 +38,6 @@ class BowlingGame:
                 # Open frame
                 score += self.rolls[frame_index]
                 frame_index += 2
-
         return score
 
     def _is_strike(self, frame_index):
