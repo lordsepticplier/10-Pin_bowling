@@ -89,7 +89,7 @@ class TestBowlingGame(unittest.TestCase):
     
     def test_all_strikes_game(self):
         """Test a game where all rounds are a strike."""
-        self.same_rolls(21, 10)
+        self.same_rolls(12, 10)
         # Expected score: 300
         self.assertEqual(300, self.game.score())
 
@@ -103,24 +103,24 @@ class TestBowlingGame(unittest.TestCase):
         """Test a game where -1 which isn't possible happens."""
         self.game.roll(-1)
         self.same_rolls(19, 0)
-        # Expected score: error
+        # Expected score: error or 0 (makes invailed/cheating roll 0)
         self.assertEqual(0, self.game.score())
 
     def test_bowls_11_game(self):
         """Test a game where 11 which isn't possible happens."""
         self.game.roll(11)
-        self.same_rolls(20, 10)
-        # Expected score: error
-        self.assertEqual(300, self.game.score())
+        self.same_rolls(11, 10)
+        # Expected score: error or 270 (makes invailed/cheating roll 0)
+        self.assertEqual(270, self.game.score())
 
     def test_more_then_10__game(self):
         """Test a game where more pins are hit then is left."""
         self.game.roll(9)
         self.game.roll(4)
-        # Expected score: error
+        # Expected score: error or 9 (makes invailed/cheating roll 0)
         self.same_rolls(18, 0)
 
-        self.assertEqual(10, self.game.score())
+        self.assertEqual(9, self.game.score())
 
     def test_bowls_3_times_without_bonus_game(self):
         """Test a game where they bowl 3 times on round 10 even tho they didn't get a bonus."""
