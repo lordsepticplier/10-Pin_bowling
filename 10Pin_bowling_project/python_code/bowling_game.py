@@ -25,7 +25,7 @@ class BowlingGame:
         frame_index = 0
 
         for frame in range(10):
-            #changing for 9 to 10 makes it that round 10 happens
+            #changing from 9 to 10 makes it that round 10 happens
             if self._is_strike(frame_index):
                 # Strike
                 score += 10 + self._strike_bonus(frame_index)
@@ -36,7 +36,8 @@ class BowlingGame:
                 frame_index += 2
             else:
                 # Open frame
-                score += self.rolls[frame_index]
+                score += self._open_frame(frame_index) 
+                #changed from taking the roll to taking both rolls in the open frame
                 frame_index += 2
         return score
 
@@ -87,3 +88,14 @@ class BowlingGame:
             The value of the roll after the spare
         """
         return self.rolls[frame_index + 2]
+    def _open_frame(self, frame_index):
+        """
+        Calculate the open frame
+
+        Args:
+            frame_index: Index of the first roll in the open frame
+
+        Returns:
+            The value of the open frame
+        """
+        return self.rolls[frame_index] + self.rolls[frame_index + 1] 
