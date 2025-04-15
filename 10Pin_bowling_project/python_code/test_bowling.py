@@ -8,7 +8,6 @@ work as they should
 import unittest
 from bowling_game import BowlingGame
 
-
 class TestBowlingGame(unittest.TestCase):
     def setUp(self):
         """Set up a new game before each test."""
@@ -21,69 +20,25 @@ class TestBowlingGame(unittest.TestCase):
 
     def test_normal_game(self):
         """Test a normal game."""
-        self.game.roll(8)
-        self.game.roll(1)
+        #this has all the rolls in it the space is to seperate the rounds
+        rolls = [8,1,   6, 4,   5, 2,   10,   7, 3,   0, 7,   7, 2,    10,   9, 0,   7, 3, 7]
 
-        self.game.roll(6)
-        self.game.roll(4)
+        #this puts all the rolls in the game
+        for pins in rolls:
+            self.game.roll(pins)
 
-        self.game.roll(5)
-        self.game.roll(2)
-
-        self.game.roll(10)
-
-        self.game.roll(7)
-        self.game.roll(3)
-
-        self.game.roll(0)
-        self.game.roll(7)
-
-        self.game.roll(7)
-        self.game.roll(2)
-
-        self.game.roll(10)
-
-        self.game.roll(9)
-        self.game.roll(0)
-
-        self.game.roll(7)
-        self.game.roll(3)
-        self.game.roll(7)
         # Expected score: 122
         self.assertEqual(122, self.game.score())
 
     def test_all_spares_game(self):
         """Test a game where all rounds are spares."""
-        self.game.roll(0)
-        self.game.roll(10)
+        #this has all the rolls in it the space is to seperate the rounds
+        rolls = [0, 10,   1, 9,   2, 8,   3,7,   4, 6,   5, 5,   6, 4,    7,3,   8, 2,   9, 1, 10]
 
-        self.game.roll(1)
-        self.game.roll(9)
+        #this puts all the rolls in the game
+        for pins in rolls:
+            self.game.roll(pins)
 
-        self.game.roll(2)
-        self.game.roll(8)
-
-        self.game.roll(3)
-        self.game.roll(7)
-
-        self.game.roll(4)
-        self.game.roll(6)
-
-        self.game.roll(5)
-        self.game.roll(5)
-
-        self.game.roll(6)
-        self.game.roll(4)
-
-        self.game.roll(7)
-        self.game.roll(3)
-
-        self.game.roll(8)
-        self.game.roll(2)
-
-        self.game.roll(9)
-        self.game.roll(1)
-        self.game.roll(10)
         # Expected score: 155
         self.assertEqual(155, self.game.score())
     
@@ -113,7 +68,7 @@ class TestBowlingGame(unittest.TestCase):
         # Expected score: error or 270 (makes invailed/cheating roll 0)
         self.assertEqual(270, self.game.score())
 
-    def test_more_then_10__game(self):
+    def test_more_than_10_game(self):
         """Test a game where more pins are hit then is left."""
         self.game.roll(9)
         self.game.roll(4)

@@ -2,8 +2,6 @@
 Bowling Game Implementation
 A module for calculating bowling game scores.
 """
-
-
 class BowlingGame:
     def __init__(self):
         # Initialize a new game with 10 frames
@@ -18,15 +16,33 @@ class BowlingGame:
         Args:
             pins: Number of pins knocked down in this roll
         """
-        self.rolls.append(pins)
-        self.current_roll += 1
+        if pins < 0 :
+            #this happens if a roll is below 0 and makes it 0 by defult and says you cheated
+            print( "\ncheating detected" , pins , "is lower then 0 and thus cheating so this roll will be made 0")
+            self.rolls.append(0)
+            self.current_roll += 1
+        elif pins > 10 :
+            #this happens if a roll is above 10 and makes it 0 by defult and says you cheated
+            print("\ncheating detected", pins , "is higher then 10 and thus cheating so this roll will be made 0")
+            self.rolls.extend([0, 0])
+            self.current_roll += 2
+        else:
+            #this happens if the roll is between 0 and 10 / a normal roll
+            self.rolls.append(pins)
+            self.current_roll += 1
 
     def score(self):
-        """Calculate the score for the current game."""
+        """
+        Calculate the score for the current game.
+        
+        Returns:
+            The score of the current game
+        """
         score = 0
         frame_index = 0
 
-        for frame in range(9):
+        for frame in range(10):
+            #changing from 9 to 10 makes it that round 10 happens
             if self._is_strike(frame_index):
                 # Strike
                 score += 10 + self._strike_bonus(frame_index)
@@ -37,9 +53,9 @@ class BowlingGame:
                 frame_index += 2
             else:
                 # Open frame
-                score += self.rolls[frame_index]
+                score += self._open_frame(frame_index) 
+                #changed from taking the roll to taking both rolls in the open frame
                 frame_index += 2
-
         return score
 
     def _is_strike(self, frame_index):
@@ -89,3 +105,20 @@ class BowlingGame:
             The value of the roll after the spare
         """
         return self.rolls[frame_index + 2]
+    def _open_frame(self, frame_index):
+        """
+        Calculate the open frame
+
+        Args:
+            frame_index: Index of the first roll in the open frame
+
+        Returns:
+            The value of the open frame
+        """
+        if self.rolls[frame_index] + self.rolls[frame_index + 1] > 10:
+            #this happens if the two roles in the open frame is more then 10 thus cheated/wrong and if it is above 10 in makes the second roll 0 by defult and says you cheated
+            print("\ncheating detected" , self.rolls[frame_index] , "plus" , self.rolls[frame_index + 1] , "is higher then 10 and thus cheating so the second roll will be made 0")
+            return self.rolls[frame_index] + 0
+        else:
+            #this happens if the two rolls are less then 10 when added together
+            return self.rolls[frame_index] + self.rolls[frame_index + 1] 
