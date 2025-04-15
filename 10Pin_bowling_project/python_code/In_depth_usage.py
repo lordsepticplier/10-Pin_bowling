@@ -1,18 +1,17 @@
 """
-Example Usage of the Bowling Game
+more in depth usage of the Bowling Game
 
-This module demonstrates how to use the BowlingGame class to:
-1. Create a game
-2. Roll balls and knock down pins
-3. Calculate and display the score
+This file shows the tests in more depth being that it
+1. makes a game
+2. Rolls the balls
+3. Calculates and displays the score
 
-For each example, we show:
+For each game, I show:
 - The rolls in each frame
 - The expected score based on standard bowling rules
 - The actual score calculated by our implementation
 
-Note: Students should use these examples to verify their implementation
-is calculating scores correctly after fixing any bugs.
+Note: I have made this appart of my testing but have done major changes so I hope that is ok
 """
 
 from bowling_game import BowlingGame
@@ -46,56 +45,12 @@ def example_game():
     Total expected score: 190
     """
     game = BowlingGame()
+    #this has all the rolls in it the space is to seperate the rounds
+    rolls = [10,   3, 6,   5, 5,   8, 1,   10,   10,   10,   9, 0,   7, 3,   10, 10, 8]
 
-    # Store all rolls for display
-    rolls = []
-
-    # Frame 1: Strike
-    game.roll(10)
-    rolls.append(10)
-
-    # Frame 2: 3, 6
-    game.roll(3)
-    game.roll(6)
-    rolls.extend([3, 6])
-
-    # Frame 3: Spare
-    game.roll(5)
-    game.roll(5)
-    rolls.extend([5, 5])
-
-    # Frame 4: 8, 1
-    game.roll(8)
-    game.roll(1)
-    rolls.extend([8, 1])
-
-    # Frame 5: Strike
-    game.roll(10)
-    rolls.append(10)
-
-    # Frame 6: Strike
-    game.roll(10)
-    rolls.append(10)
-
-    # Frame 7: Strike
-    game.roll(10)
-    rolls.append(10)
-
-    # Frame 8: 9, 0
-    game.roll(9)
-    game.roll(0)
-    rolls.extend([9, 0])
-
-    # Frame 9: Spare
-    game.roll(7)
-    game.roll(3)
-    rolls.extend([7, 3])
-
-    # Frame 10: Strike + Strike + 8
-    game.roll(10)
-    game.roll(10)
-    game.roll(8)
-    rolls.extend([10, 10, 8])
+    #this puts all the rolls in the game
+    for pins in rolls:
+        game.roll(pins)
 
     # Calculate the final score
     actual_score = game.score()
@@ -123,8 +78,10 @@ def regular_game():
     Total expected score: 72
     """
     game = BowlingGame()
-    rolls = [3, 4, 2, 5, 1, 6, 4, 2, 8, 1, 7, 1, 5, 3, 2, 3, 4, 3, 2, 6]
+    #this has all the rolls in it the space is to seperate the rounds
+    rolls = [3, 4,   2, 5,   1, 6,   4, 2,   8, 1,   7, 1,   5, 3,   2, 3,   4, 3,   2, 6]
 
+    #this puts all the rolls in the game
     for pins in rolls:
         game.roll(pins)
 
@@ -154,58 +111,12 @@ def normal_game():
     Total expected score: 122
     """
     game = BowlingGame()
+    #this has all the rolls in it the space is to seperate the rounds
+    rolls = [8, 1,   6, 4,   5, 2,   10,   7, 3,   0, 7,   7, 2,   10,   9, 0,   7, 3, 7]
 
-    # Store all rolls for display
-    rolls = []
-
-    # Frame 1: 8, 1
-    game.roll(8)
-    game.roll(1)
-    rolls.extend([8, 1])
-
-    # Frame 2: Spare
-    game.roll(6)
-    game.roll(4)
-    rolls.extend([6, 4])
-
-    # Frame 3: 5, 2
-    game.roll(5)
-    game.roll(2)
-    rolls.extend([5, 2])
-
-    # Frame 4: Strike
-    game.roll(10)
-    rolls.append(10)
-
-    # Frame 5: Spare
-    game.roll(7)
-    game.roll(3)
-    rolls.extend([7, 3])
-
-    # Frame 6: 0, 7
-    game.roll(0)
-    game.roll(7)
-    rolls.extend([0, 7])
-
-    # Frame 7: 7, 2
-    game.roll(7)
-    game.roll(2)
-    rolls.extend([7, 2])
-
-    # Frame 8: Strike
-    game.roll(10)
-    rolls.append(10)
-
-    # Frame 9: 9, 0
-    game.roll(9)
-    game.roll(0)
-    rolls.extend([9, 0])
-
-    # Frame 10: Spare + 7
-    game.roll(7)
-    game.roll(3)
-    game.roll(7)
-    rolls.extend([7, 3, 7])
+    #this puts all the rolls in the game
+    for pins in rolls:
+        game.roll(pins)
 
     # Calculate the final score
     actual_score = game.score()
@@ -233,58 +144,12 @@ def all_spares():
     Total expected score: 155
     """
     game = BowlingGame()
-    rolls = []
+    #this has all the rolls in it the space is to seperate the rounds
+    rolls = [0, 10,   1, 9,   2, 8,   3, 7,   4, 6,   5, 5,   6, 4,   7, 3,   8, 2,   9, 1, 10]
 
-    # Frame 1: Spare
-    game.roll(0)
-    game.roll(10)
-    rolls.extend([0, 10])
-
-    # Frame 2: Spare
-    game.roll(1)
-    game.roll(9)
-    rolls.extend([1, 9])
-
-    # Frame 3: Spare
-    game.roll(2)
-    game.roll(8)
-    rolls.extend([2, 8])
-
-    # Frame 4: Spare
-    game.roll(3)
-    game.roll(7)
-    rolls.extend([3, 7])
-
-    # Frame 5: Spare
-    game.roll(4)
-    game.roll(6)
-    rolls.extend([4, 6])
-
-    # Frame 6: Spare
-    game.roll(5)
-    game.roll(5)
-    rolls.extend([5, 5])
-
-    # Frame 7: Spare
-    game.roll(6)
-    game.roll(4)
-    rolls.extend([6, 4])
-
-    # Frame 8: Spare
-    game.roll(7)
-    game.roll(3)
-    rolls.extend([7, 3])
-
-    # Frame 9: Spare
-    game.roll(8)
-    game.roll(2)
-    rolls.extend([8, 2])
-
-    # Frame 10: Spare + 10
-    game.roll(9)
-    game.roll(1)
-    game.roll(10)
-    rolls.extend([9, 1, 10])
+    #this puts all the rolls in the game
+    for pins in rolls:
+        game.roll(pins)
 
     # Calculate the final score
     actual_score = game.score()
@@ -347,7 +212,118 @@ def all_missed():
     print_game_results("All Missed", rolls, expected_score, actual_score)
     return actual_score
 
+def negitive_game():
+    """
+    Play a game with fisrt bowl being -1 rest missed balls (0 pins).
 
+    Expected score: 0
+    """
+    game = BowlingGame()
+    rolls = []
+    # Roll 1 get -1/cheating/invalid
+    game.roll(-1)
+    rolls.append(-1)
+    # Roll 20 missed balls (0 pins)
+    for _ in range(19):
+        game.roll(0)
+        rolls.append(0)
+
+    # Calculate the final score
+    actual_score = game.score()
+    expected_score = 0
+
+    print_game_results("Negitive Game", rolls, expected_score, actual_score)
+    return actual_score
+
+def bowls_11_game():
+    """
+    Play a game where first bowl is 11 and the rest are strikes(10 pins).
+    Frames and scoring:
+    Frame 1: 11 (Strike)  | 0
+    Frame 2: 10 (Strike)  | 10 + 10 + 10 = 30
+    Frame 3: 10 (Strike)  | 10 + 10 + 10 = 30
+    Frame 4: 10 (Strike)  | 10 + 10 + 10 = 30
+    Frame 5: 10 (Strike)  | 10 + 10 + 10 = 30
+    Frame 6: 10 (Strike)  | 10 + 10 + 10 = 30
+    Frame 7: 10 (Strike)  | 10 + 10 + 10 = 30
+    Frame 8: 10 (Strike)  | 10 + 10 + 10 = 30
+    Frame 9: 10 (Strike)  | 10 + 10 + 10 = 30
+    Frame 10: 10, 10, 10  | 30
+
+    Total expected score: 270
+    """
+    game = BowlingGame()
+    rolls = []
+    # Roll 1 get 11/cheating/invalid
+    game.roll(11)
+    rolls.append(11)
+    # Roll 11 strikes(10 pins)
+    for _ in range(11):
+        game.roll(10)
+        rolls.append(10)
+
+    # Calculate the final score
+    actual_score = game.score()
+    expected_score = 270
+
+    print_game_results("Bowls 11 Game", rolls, expected_score, actual_score)
+    return actual_score
+
+def more_than_10_game():
+    """
+    Play a game with fisrt bowl being 9 then 4 then the rest missed balls (0 pins).
+
+    Frames and scoring:
+    Frame 1: 9, 4  | 9
+    Frames 2-10: 0 | 0
+    Expected score: 9
+    """
+    game = BowlingGame()
+    rolls = []
+    # Roll 9 and then a 4/cheating/invalid
+    game.roll(9)
+    game.roll(4)
+    rolls.extend([9, 4])
+    # Roll 18 missed (0 pins)
+    for _ in range(18):
+        game.roll(0)
+        rolls.append(0)
+
+    # Calculate the final score
+    actual_score = game.score()
+    expected_score = 9
+
+    print_game_results("More Then 10 Game", rolls, expected_score, actual_score)
+    return actual_score
+
+def bowls_3_times_without_bonus_game():
+    """
+    Play a game with fisrt bowl being 9 then 4 then the rest missed balls (0 pins).
+
+    Frames and scoring:
+    Frames 1-9: 0     | 0
+    Frame 10: 3, 3, 3 | 6
+    Expected score: 6
+    """
+    game = BowlingGame()
+    rolls = []
+    # Roll 18 missed (0 pins)
+    for _ in range(18):
+        game.roll(0)
+        rolls.append(0)    
+    # Roll 3 and then a 3 and then a 3/cheating/invalid
+    game.roll(3)
+    game.roll(3)
+    game.roll(3)
+    rolls.extend([3, 3, 3])
+
+
+    # Calculate the final score
+    actual_score = game.score()
+    expected_score = 6
+
+    print_game_results("Bowls 3 Times Without Bonus Game", rolls, expected_score, actual_score)
+    return actual_score
 
 def main():
     """Run all example games and print a summary."""
@@ -365,6 +341,10 @@ def main():
     all_spares()
     all_strikes()
     all_missed()
+    negitive_game()
+    bowls_11_game()
+    more_than_10_game()
+    bowls_3_times_without_bonus_game()
     
 
 if __name__ == "__main__":
