@@ -5,8 +5,9 @@ This repository contains the code for a 10-pin Bowling Game scoring system. The 
 ## Project Files
 
 - `bowling_game.py`: Contains the `BowlingGame` class that implements the scoring logic
-- `example_usage.py`: Demonstrates how to use the `BowlingGame` class
-- `test_bowling.py`: Basic unit tests for the `BowlingGame` class
+- `in_depth_usage.py`: Demonstrates the tests in more detail and how to use the `BowlingGame` class
+- `test_bowling.py`: all the unit tests for the `BowlingGame` class
+- `test project.pdf`: this has all the documentation for this project
 
 ## Game Rules
 
@@ -25,13 +26,5 @@ A perfect game (12 strikes in a row) scores 300 points.
 
 ## Task
 
-This code is provided as a starting point for students to:
-
-1. Create a test plan
-2. Design and implement a suite of unit tests
-3. Debug the application and fix any issues
-4. Refactor the code to improve its quality
-5. Document the code using PythonDoc
-6. Use Git for version control
-
-The code intentionally contains bugs and areas for improvement, which students are expected to identify and fix.
+this code is the finished version of what was given and has been tested debugged, refactored and fixed
+It also has all of the documentation for this project
